@@ -10,10 +10,7 @@
     "128": "icons/icon128.png"
   },
   "default_locale": "en",
-  "background": {
-    "page": "src/bg/background.html",
-    "persistent": true
-  },
+
   "permissions": [
     "clipboardWrite",
     "http://kb.wisc.edu/*",
@@ -23,10 +20,12 @@
   "content_scripts": [
     {
       "matches": [
-        "https://www.google.com/*"
+        "http://kb.wisc.edu/*",
+        "https://kb.wisc.edu/*"
       ],
       "js": [
-        "src/inject/inject.js"
+        "src/inject/inject.js",
+        "src/inject/jquery-2.2.3.min.js"
       ]
     }
   ]
