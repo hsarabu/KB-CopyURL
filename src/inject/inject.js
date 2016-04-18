@@ -11,15 +11,12 @@ chrome.extension.sendMessage({}, function(response) {
 	}
 	}, 10);
 });
-var url;
+var url, finalPage;
 
 function changePage(){
 	if(hasExternalPage() != -1){ //check to see if an external page exists
-		var finalPage = "http://kb.wisc.edu/page.php?id=" + getKbId(); //append the doc ID to the standard kb url Base
-		var element = document.createElement("P");
-		var text = document.createTextNode("An external site exists, click anywhere in the banner to copy me onto the clipboard" + finalPage);
-		element.appendChild(text);
-		document.getElementById("logo-search").appendChild(element);
+		finalPage = "http://kb.wisc.edu/page.php?id=" + getKbId(); //append the doc ID to the standard kb url Base
+
 	}
 };
 
@@ -37,3 +34,7 @@ function hasExternalPage(){
 	return HTML.search("-external");
 	};
 
+function getPage() {
+	console.log(finalPage);
+	return finalPage;
+}
